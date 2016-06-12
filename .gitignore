@@ -1,0 +1,16 @@
+**/.sw?
+**/.*.sw?
+node_modules
+bower_components
+npm-debug.log
+/coverage
+/doc
+/web
+/electron
+!.babelrc
+!.codeclimate.yml
+!.eslintrc.yml
+!.gitignore
+!.gitmodules
+!.npmignore
+!.travis.yml

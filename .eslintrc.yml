@@ -1,0 +1,374 @@
+env:
+  browser: true
+  node: true
+  mocha: true
+  phantomjs: true
+  es6: true
+globals: {}
+ecmaFeatures:
+  generators: true
+  forOf: true
+  binaryLiterals: true
+  classes: true
+  defaultParams: true
+  modules: true
+  templateStrings: true
+  unicodeCodePointEscapes: true
+  objectLiteralDuplicateProperties: true
+  objectLiteralShorthandProperties: true
+  octalLiterals: true
+  destructuring: true
+  objectLiteralComputedProperties: true
+  arrowFunctions: true
+  spread: true
+  globalReturn: true
+  objectLiteralShorthandMethods: true
+  regexUFlag: true
+  superInFunctions: true
+  blockBindings: true
+  regexYFlag: true
+parser: babel-eslint
+rules:
+  prefer-reflect: 0
+  no-plusplus: 0
+  no-return-assign:
+    - 2
+    - except-parens
+  no-invalid-this: 2
+  no-void: 2
+  one-var: 0
+  no-undef: 2
+  eol-last:
+    - 2
+    - unix
+  max-nested-callbacks:
+    - 1
+    - 3
+  no-empty: 2
+  no-loop-func: 2
+  no-restricted-modules: 0
+  keyword-spacing:
+    - 2
+  generator-star-spacing:
+    - 2
+    - after
+  wrap-iife:
+    - 2
+    - inside
+  valid-typeof: 2
+  handle-callback-err: 0
+  operator-linebreak:
+    - 2
+    - before
+    - overrides: {"?": after, ":": after, "=": after}
+  no-label-var: 2
+  no-process-env: 0
+  no-irregular-whitespace: 2
+  block-spacing:
+    - 2
+    - always
+  padded-blocks:
+    - 2
+    - never
+  no-empty-pattern: 2
+  radix:
+    - 2
+    - as-needed
+  no-undefined: 2
+  semi-spacing: 2
+  eqeqeq:
+    - 2
+    - allow-null
+  wrap-regex: 0
+  no-negated-condition: 0
+  require-yield: 2
+  new-cap:
+    - 1
+    - capIsNew: true
+  no-const-assign: 2
+  no-bitwise: 0
+  dot-notation: 0
+  camelcase: 0
+  prefer-const: 2
+  no-negated-in-lhs: 2
+  prefer-arrow-callback: 1
+  no-extra-bind: 2
+  no-sequences: 2
+  require-jsdoc: 2
+  comma-dangle:
+    - 2
+    - always-multiline
+  no-spaced-func: 2
+  no-sync: 1
+  no-labels: 2
+  no-unreachable: 2
+  no-eval: 2
+  func-style: 0
+  no-unneeded-ternary: 2
+  no-process-exit: 1
+  no-empty-character-class: 2
+  vars-on-top: 1
+  constructor-super: 2
+  no-restricted-syntax: 0
+  no-dupe-class-members: 2
+  strict:
+    - 2
+    - global
+  no-case-declarations: 2
+  array-bracket-spacing:
+    - 2
+    - never
+  block-scoped-var: 0
+  arrow-body-style:
+    - 2
+    - as-needed
+  space-in-parens:
+    - 2
+    - never
+  no-control-regex: 0
+  consistent-return: 0
+  no-console: 2
+  comma-spacing:
+    - 2
+    - after: true
+  no-redeclare:
+    - 2
+    - builtinGlobals: true
+  computed-property-spacing:
+    - 2
+    - never
+  no-invalid-regexp: 2
+  use-isnan: 2
+  no-new-require: 2
+  indent:
+    - 2
+    - 2
+    - SwitchCase: 1
+      VariableDeclarator:
+        var: 2
+        let: 2
+        const: 3
+  no-native-reassign: 2
+  no-func-assign: 2
+  max-len:
+    - 2
+    - 100
+    - 2
+    - ignoreComments: true
+  no-shadow: 1
+  no-mixed-requires: 2
+  max-statements:
+    - 1
+    - 10
+    - ignoreTopLevelFunctions: true
+  space-unary-ops:
+    - 2
+    - words: true
+      nonwords: false
+  no-lone-blocks: 1
+  no-debugger: 2
+  arrow-parens: 0
+  lines-around-comment: 0
+  space-before-blocks:
+    - 2
+    - always
+  no-implied-eval: 2
+  no-useless-concat: 0
+  no-multi-spaces: 2
+  curly: 0
+  no-extra-boolean-cast: 2
+  space-infix-ops:
+    - 2
+    - int32Hint: true
+  no-multiple-empty-lines:
+    - 2
+    - max: 2
+      maxBOF: 0
+      maxEOF: 0
+  semi:
+    - 2
+    - always
+  no-param-reassign:
+    - 2
+    - props: true
+  no-cond-assign:
+    - 1
+    - except-parens
+  no-dupe-keys: 2
+  max-params:
+    - 1
+    - 6
+  no-ternary: 0
+  linebreak-style:
+    - 2
+    - unix
+  no-octal-escape: 1
+  no-this-before-super: 2
+  no-alert: 2
+  no-unused-expressions:
+    - 2
+    - allowShortCircuit: true
+      allowTernary: true
+  no-class-assign: 2
+  spaced-comment:
+    - 2
+    - always
+    - exceptions:
+        - '-'
+        - '*'
+      markers:
+        - '!<'
+  no-path-concat: 2
+  prefer-spread: 2
+  no-self-compare: 2
+  guard-for-in: 0
+  no-nested-ternary: 1
+  no-multi-str: 0
+  no-warning-comments:
+    - 1
+    - location: anywhere
+  no-delete-var: 2
+  no-with: 1
+  no-extra-parens: 0
+  no-trailing-spaces: 2
+  no-obj-calls: 2
+  accessor-pairs:
+    - 2
+    - setWithoutGet: true
+  yoda:
+    - 2
+    - never
+    - exceptRange: true
+  id-match: 0
+  no-continue: 1
+  no-new: 2
+  object-curly-spacing:
+    - 2
+    - never
+    - arraysInObjects: true
+      objectsInObjects: true
+  jsx-quotes: 0
+  key-spacing:
+    - 2
+    - mode: strict
+      afterColon: true
+  no-underscore-dangle: 0
+  new-parens: 2
+  no-mixed-spaces-and-tabs: 2
+  no-floating-decimal: 2
+  operator-assignment: 0
+  init-declarations: 0
+  no-shadow-restricted-names: 2
+  no-use-before-define:
+    - 1
+    - nofunc
+  no-useless-call: 2
+  no-caller: 0
+  quotes:
+    - 2
+    - single
+    - avoid-escape
+  brace-style:
+    - 2
+    - 1tbs
+    - allowSingleLine: true
+  no-unused-vars:
+    - 1
+    - local
+  no-lonely-if: 0
+  no-extra-semi: 2
+  prefer-template: 0
+  no-else-return: 0
+  no-dupe-args: 2
+  no-new-object: 1
+  callback-return: 0
+  id-length: 0
+  no-new-wrappers: 0
+  comma-style:
+    - 2
+    - last
+  no-script-url: 0
+  consistent-this: 0
+  dot-location:
+    - 2
+    - property
+  no-implicit-coercion: 0
+  max-depth:
+    - 1
+    - 4
+  no-array-constructor: 2
+  no-iterator: 2
+  sort-vars: 0
+  no-var: 1
+  global-require: 0
+  no-sparse-arrays: 2
+  space-before-function-paren:
+    - 2
+    - never
+  no-throw-literal: 2
+  no-eq-null: 0
+  no-inline-comments: 0
+  no-proto: 2
+  default-case: 1
+  no-inner-declarations:
+    - 2
+    - functions
+  no-new-func: 1
+  object-shorthand:
+    - 1
+    - always
+  no-ex-assign: 2
+  no-unexpected-multiline: 2
+  newline-after-var: 0
+  no-undef-init: 1
+  no-duplicate-case: 2
+  no-fallthrough: 2
+  no-catch-shadow: 0
+  no-constant-condition: 2
+  complexity:
+    - 1
+    - 4
+  valid-jsdoc:
+    - 2
+    - requireParamDescription: true
+      requireReturn: true
+      requireReturnDescription: true
+  no-extend-native: 2
+  no-magic-numbers:
+    - 1
+    - ignoreArrayIndexes: true
+  no-regex-spaces: 0
+  no-octal: 1
+  arrow-spacing:
+    - 2
+    - before: true
+      after: true
+  quote-props:
+    - 2
+    - as-needed
+  no-div-regex: 0
+  func-names: 0
+  no-whitespace-before-property: 2
+  array-callback-return: 2
+  one-var-declaration-per-line: 2
+  sort-imports: 0
+  prefer-rest-params: 2
+  yield-star-spacing:
+    - 2
+    - after
+  no-confusing-arrow:
+    - 2
+    - allowParens: true
+  no-unmodified-loop-condition: 2
+  newline-per-chained-call:
+    - 2
+    - ignoreChainWithDepth: 3
+  no-implicit-globals: 2
+  no-self-assign: 2
+  no-useless-constructor: 1
+  template-curly-spacing:
+    - 2
+    - never
+  no-unused-labels: 2
+  no-extra-label: 2
+  no-empty-function: 2

@@ -1,0 +1,15 @@
+{
+  "presets": [
+    "es2015"
+  ],
+  "plugins": [
+    "transform-runtime"
+  ],
+  "env": {
+    "development": {
+      "presets": [
+        "power-assert"
+      ]
+    }
+  }
+}

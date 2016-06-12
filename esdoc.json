@@ -1,0 +1,8 @@
+{
+  "source": "./src",
+  "destination": "./doc",
+  "excludes": [],
+  "access": ["public", "protected"],
+  "debug": false,
+  "index": "Readme.md"
+}

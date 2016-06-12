@@ -1,0 +1,34 @@
+{
+  "name": "schematable",
+  "description": "table with schema",
+  "main": "./lib/master-table.js",
+  "authors": [
+    "Narazaka"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.sw?",
+    "**/.*.sw?",
+    "bower_components",
+    "node_modules",
+    "npm-debug.log",
+    "/coverage",
+    "/doc",
+    "/web",
+    "/electron",
+    "/.*",
+    "appveyor.yml",
+    "gulpfile.babel.js",
+    "karma.conf.js",
+    "webpack.config.js",
+    "esdoc.json"
+  ],
+  "dependencies": {
+    "handsontable": "^0.25.0",
+    "ruleJS": "^0.0.5",
+    "handsontable-ruleJS": "^0.0.4",
+    "metro": "^3.0.14",
+    "seedsontable": "*"
+  }
+}

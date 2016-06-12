@@ -1,0 +1,139 @@
+doctype html
+html
+  head
+    meta(charset="utf-8")
+    link(rel="stylesheet", href="lib/metro/build/css/metro.css")
+    link(rel="stylesheet", href="lib/metro/build/css/metro-icons.css")
+    link(rel="stylesheet", href="lib/metro/build/css/metro-schemes.css")
+    link(rel="stylesheet", href="lib/pikaday/css/pikaday.css")
+    link(rel="stylesheet", href="lib/handsontable/dist/handsontable.css")
+    link(rel="stylesheet", href="lib/handsontable-ruleJS/src/handsontable.formula.css")
+    link(rel="stylesheet", href="main.css")
+    script(src="lib/jquery/dist/jquery.js")
+    script.
+      window.jQuery = window.$ = require('./lib/jquery/dist/jquery.js');
+    script(src="lib/metro/build/js/metro.js")
+    script(src="lib/zeroclipboard/dist/Zeroclipboard.js")
+    script(src="lib/pikaday/pikaday.js")
+    script(src="lib/moment/moment.js")
+    script.
+      var _require = require;
+      var _module = module;
+      require = undefined;
+      module = undefined;
+    script(src="lib/handsontable/dist/handsontable.js")
+    script.
+      var require = _require;
+      var module = _module;
+      _require = undefined;
+      _module = undefined;
+    // script.
+    //   window.Handsontable = require('handsontable');
+    script(src="lib/ruleJS/dist/full/ruleJS.all.full.js")
+    // script(src="lib/handsontable-ruleJS/src/handsontable.formula.js")
+    script(src="lib/seedsontable/web/seedsontable.js")
+    script(src="main.js")
+  body
+    #menu
+      .fluent-menu(data-role="fluentmenu")
+        ul.tabs-holder
+          li.special: a(href="#", onclick="$('#charm').data('charm').open()") SeedsonTable
+          li.active: a(href="#menu-tab-home") ホーム
+          //li: a(href="#menu-tab-settings") 設定
+        .tabs-content
+          .tab-panel#menu-tab-home
+            .tab-panel-group
+              .tab-group-content
+                .tab-content-segment
+                  button.fluent-tool-button#command-undo
+                    span.mif-undo
+                  button.fluent-tool-button#command-redo
+                    span.mif-redo
+              .tab-group-caption 元に戻す
+            .tab-panel-group
+              .tab-group-content
+                .tab-content-segment
+                  button.fluent-big-button#command-save(data-hotkey="Ctrl+F1")
+                    span.mif-floppy-disk
+                    span.label 保存
+                .tab-content-segment
+                  button.fluent-button#command-open
+                    span.mif-folder-open
+                    span.label 開く
+                  button.fluent-button#command-export-zip
+                    span.mif-folder-download
+                    span.label ZIPにして出力
+                  button.fluent-button#command-export-xlsx
+                    span.mif-file-excel
+                    span.label Excelとして出力
+              .tab-group-caption ファイル
+            .tab-panel-group
+              .tab-group-content
+                .tab-content-segment
+                  button.fluent-button#command-insert-row-above
+                    span.mif-vertical-align-top
+                    span.label 上に挿入
+                  button.fluent-button#command-insert-row-below
+                    span.mif-vertical-align-bottom
+                    span.label 下に挿入
+                  button.fluent-button#command-remove-row
+                    span.mif-vertical-align-center
+                    span.label 行を削除
+              .tab-group-caption 行
+            //.tab-panel-group
+              .tab-group-content
+                .tab-content-segment
+                  .input-control.text
+                    input
+                    button.button
+                      span.mif-search
+              .tab-group-caption 検索
+            .tab-panel-group
+              .tab-group-content
+                .tab-content-segment
+                  button.fluent-big-button#command-show-comment
+                    span.mif-bubble
+                    span.label コメント
+                .tab-content-segment
+                  button.fluent-big-button#command-remove-comment
+                    span.mif-minus
+                    span.label
+                      | コメント
+                      br
+                      | を削除
+              .tab-group-caption コメント
+          .tab-panel#menu-tab-settings
+            .tab-panel-group
+              .tab-group-content
+                .tab-content-segment
+                  button.fluent-big-button
+                    span.mif-settings-ethernet
+                    span.label
+                      | シート
+                      br
+                      | の設定
+              .tab-group-caption 設定
+    #sheets
+    .tabcontrol2.tabs-bottom(data-role="tabcontrol")
+      ul.tabs#tabs
+        li: a(href="#") none
+    #charm(data-role="charm", data-position="left")
+      h1 SeedsonTable
+      ul.sidebar.darcula
+        li
+          a(href="#", onclick="showMetroDialog('#dialog-about');$('#charm').data('charm').close();")
+            span.mif-question.icon
+            span.title このソフトウェアについて
+        li
+          a(href="#", onclick="window.close()")
+            span.mif-cross.icon
+            span.title SeedsonTableを終了
+    #dialog-about.dialog.padding20(data-role="dialog", data-overlay="true", data-overlay-color="op-dark", data-overlay-click-close="true", data-close-button="true")
+      h1 このソフトウェアについて
+      p: a(href="#", onclick="require('electron').remote.shell.openExternal('https://github.com/seed-ui/SeedsonTable')") SeedsonTable
+    #dialog-quit.dialog.padding20.alert(data-role="dialog", data-overlay="true", data-overlay-color="op-dark", data-close-button="true")
+      h1 終了しますか?
+      p 保存されていないデータは失われます
+      .align-center
+        button.button.primary#command-close-confirm 終了
+        button.button#command-close-cancel キャンセル
