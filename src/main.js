@@ -89,6 +89,29 @@ $(() => {
     if (row != null && col != null) table.getPlugin('comments').removeCommentAtCell(row, col);
   });
 
+  function search() {
+    if (!app.current_sheet) return;
+    const table = app.current_sheet.table;
+    const word = $('#command-search-input').val();
+    const result = table.search.query(word);
+    table.render();
+    console.log(result);
+    if (!result.length) return;
+    const [startRow, startCol, endRow, endCol] = table.getSelected() || [];
+    let nextCell;
+    if (startRow == null) {
+      nextCell = result[0];
+    } else {
+      nextCell = result.find((cell) => cell.row > startRow || (cell.row === startRow && cell.col > startCol)) || result[0];
+    }
+    table.selectCell(nextCell.row, nextCell.col, nextCell.row, nextCell.col, true, false);
+    // table.scrollViewportTo(nextCell.row, nextCell.col);
+  }
+  $('#command-search-input').keydown((event) => {
+    if (event.keyCode === 13) search();
+  });
+  $('#command-search-button').click(search);
+
   window.onbeforeunload = (event) => {
     if (app.has_change && !app.quit_confirmed) {
       showMetroDialog('#dialog-quit');
