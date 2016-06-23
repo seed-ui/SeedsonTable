@@ -182,10 +182,15 @@ function open_data(entry_path) {
 
 function save_data() {
   const sheets_dir = fso.new(app.entry_path).new('sheets');
+  const seeds_dir = fso.new(app.entry_path).new('seeds/no_version');
+  seeds_dir.mkdirpSync();
   app.sheets.forEach((sheet) => {
     const data = sheet.seedData.contentData();
     const yaml = jsyaml.safeDump(data);
     sheets_dir.new(`${sheet.name}.data.yml`).writeFileSync(yaml);
+    const seedData = sheet.seedData.contentDataToHash({denyDevelop: true, denyNoSeed: true});
+    const seedYaml = jsyaml.safeDump(seedData);
+    seeds_dir.new(`${sheet.name}.yml`).writeFileSync(seedYaml);
   });
   app.has_change = false;
   $.Notify({
