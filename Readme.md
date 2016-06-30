@@ -5,6 +5,8 @@
 
 [handsontable](https://github.com/handsontable/handsontable)を利用してseedデータを入力できる表計算?ソフト
 
+![スクリーンショット](SeedsonTable.png)
+
 ## Install
 
 [Releases](https://github.com/seed-ui/SeedsonTable/releases)から該当する環境のZIPを落として解凍し、好きな場所に置く。
