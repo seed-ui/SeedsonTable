@@ -188,6 +188,9 @@ function save_data() {
     const data = sheet.seedData.contentData();
     const yaml = jsyaml.safeDump(data);
     sheets_dir.new(`${sheet.name}.data.yml`).writeFileSync(yaml);
+    const comments = sheet.seedData.comments;
+    const commentsYaml = jsyaml.safeDump(comments);
+    sheets_dir.new(`${sheet.name}.comments.yml`).writeFileSync(commentsYaml);
     const seedData = sheet.seedData.contentDataToHash({denyDevelop: true, denyNoSeed: true});
     const seedYaml = jsyaml.safeDump(seedData);
     seeds_dir.new(`${sheet.name}.yml`).writeFileSync(seedYaml);
