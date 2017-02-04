@@ -29,6 +29,6 @@
     "ruleJS": "^0.0.5",
     "handsontable-ruleJS": "^0.0.4",
     "metro": "^3.0.14",
-    "seedsontable": "*"
+    "seedsontable": "^0.0.4"
   }
 }
