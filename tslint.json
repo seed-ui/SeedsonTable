@@ -1,0 +1,47 @@
+{
+    "extends": [
+        "tslint:all",
+        "./tslint-eslint.json"
+    ],
+    "rules": {
+        "member-access": [
+            false
+        ],
+        "curly": false,
+        "only-arrow-functions": [
+            false
+        ],
+        "variable-name": [
+            true,
+            "allow-leading-underscore",
+            "allow-pascal-case"
+        ],
+        "interface-name": [
+            true,
+            "never-prefix"
+        ],
+        "object-literal-sort-keys": false,
+        "typedef": [
+            false
+        ],
+        "no-any": false,
+        "member-ordering":[
+            false
+        ],
+        "no-default-export": false,
+        "no-require-imports": false,
+        "no-unused-variable": false,
+        "strict-boolean-expressions": [
+            false
+        ],
+        "match-default-export-name": false,
+        "no-void-expression": [
+            true,
+            "ignore-arrow-function-shorthand"
+        ],
+        "comment-format": [
+            true,
+            "check-space"
+        ]
+    }
+}

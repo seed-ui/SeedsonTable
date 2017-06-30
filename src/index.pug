@@ -2,44 +2,21 @@ doctype html
 html
   head
     meta(charset="utf-8")
-    link(rel="stylesheet", href="lib/metro/build/css/metro.css")
-    link(rel="stylesheet", href="lib/metro/build/css/metro-icons.css")
-    link(rel="stylesheet", href="lib/metro/build/css/metro-schemes.css")
-    link(rel="stylesheet", href="lib/pikaday/css/pikaday.css")
-    link(rel="stylesheet", href="lib/handsontable/dist/handsontable.css")
-    link(rel="stylesheet", href="lib/handsontable-ruleJS/src/handsontable.formula.css")
     link(rel="stylesheet", href="main.css")
-    script(src="lib/jquery/dist/jquery.js")
-    script.
-      window.jQuery = window.$ = require('./lib/jquery/dist/jquery.js');
-    script(src="lib/metro/build/js/metro.js")
-    script(src="lib/zeroclipboard/dist/Zeroclipboard.js")
-    script(src="lib/pikaday/pikaday.js")
-    script(src="lib/moment/moment.js")
-    script.
-      var _require = require;
-      var _module = module;
-      require = undefined;
-      module = undefined;
-    script(src="lib/handsontable/dist/handsontable.js")
-    script.
-      var require = _require;
-      var module = _module;
-      _require = undefined;
-      _module = undefined;
-    // script.
-    //   window.Handsontable = require('handsontable');
-    script(src="lib/ruleJS/dist/full/ruleJS.all.full.js")
-    // script(src="lib/handsontable-ruleJS/src/handsontable.formula.js")
-    script(src="lib/seedsontable/web/seedsontable.js")
     script(src="main.js")
   body
     #menu
       .fluent-menu(data-role="fluentmenu")
-        ul.tabs-holder
-          li.special: a(href="#", onclick="$('#charm').data('charm').open()") SeedsonTable
-          li.active: a(href="#menu-tab-home") ホーム
-          //li: a(href="#menu-tab-settings") 設定
+        ul.tabs-holder(style="-webkit-app-region: drag")
+          li.special(style="-webkit-app-region: no-drag"): a(href="#", onclick="showMetroCharm('#charm')") SeedsonTable
+          li.active(style="-webkit-app-region: no-drag"): a(href="#menu-tab-home") ホーム
+          li(style="-webkit-app-region: no-drag"): a(href="#menu-tab-manage") 管理
+          li.place-right.bg-red(style="-webkit-app-region: no-drag")
+            a.fg-white(href="#", onclick="window.close()"): span.mif-cross
+          li.place-right.bg-blue(style="-webkit-app-region: no-drag")
+            a.fg-white(href="#", onclick="var win = require('electron').remote.BrowserWindow.getFocusedWindow(); win.isMaximized() ? win.unmaximize() : win.maximize()"): span.mif-enlarge2
+          li.place-right.bg-blue(style="-webkit-app-region: no-drag")
+            a.fg-white(href="#", onclick="require('electron').remote.BrowserWindow.getFocusedWindow().minimize()"): span.mif-minus
         .tabs-content
           .tab-panel#menu-tab-home
             .tab-panel-group
@@ -109,17 +86,27 @@ html
                       br
                       | を削除
               .tab-group-caption コメント
-          .tab-panel#menu-tab-settings
+          .tab-panel#menu-tab-manage
             .tab-panel-group
               .tab-group-content
                 .tab-content-segment
-                  button.fluent-big-button
-                    span.mif-settings-ethernet
+                  button.fluent-big-button#command-save-initial
+                    span.mif-file-empty
                     span.label
-                      | シート
+                      | 新規
                       br
-                      | の設定
-              .tab-group-caption 設定
+                      | ブック
+              .tab-group-caption 新規
+            .tab-panel-group
+              .tab-group-content
+                .tab-content-segment
+                  button.fluent-big-button#command-dialog-new-sheet
+                    span.mif-folder-plus
+                    span.label
+                      | 新規
+                      br
+                      | シート
+              .tab-group-caption 現在のブック
     #sheets
     .tabcontrol2.tabs-bottom(data-role="tabcontrol")
       ul.tabs#tabs
@@ -128,19 +115,29 @@ html
       h1 SeedsonTable
       ul.sidebar.darcula
         li
-          a(href="#", onclick="showMetroDialog('#dialog-about');$('#charm').data('charm').close();")
+          a(href="#", onclick="metroDialog.open('#dialog-about');hideMetroCharm('#charm')")
             span.mif-question.icon
             span.title このソフトウェアについて
         li
           a(href="#", onclick="window.close()")
             span.mif-cross.icon
             span.title SeedsonTableを終了
+      span.charm-closer
+    #dialog-new-sheet.dialog.padding20(data-role="dialog", data-overlay="true", data-overlay-color="op-dark", data-close-button="true")
+      h1 新規シートを作成
+      p 現在のブックに新規シートを追加します
+      .align-center
+        .input-control.text
+          input#new-sheet-name
+        button.button.primary#command-save-new-sheet 作成
+        button.button(onclick="metroDialog.close('#dialog-new-sheet')") キャンセル
     #dialog-about.dialog.padding20(data-role="dialog", data-overlay="true", data-overlay-color="op-dark", data-overlay-click-close="true", data-close-button="true")
       h1 このソフトウェアについて
       p: a(href="#", onclick="require('electron').remote.shell.openExternal('https://github.com/seed-ui/SeedsonTable')") SeedsonTable
+    // 重ね順を一番最後(上)にする
     #dialog-quit.dialog.padding20.alert(data-role="dialog", data-overlay="true", data-overlay-color="op-dark", data-close-button="true")
       h1 終了しますか?
       p 保存されていないデータは失われます
       .align-center
         button.button.primary#command-close-confirm 終了
-        button.button#command-close-cancel キャンセル
+        button.button(onclick="metroDialog.close('#dialog-quit')") キャンセル
