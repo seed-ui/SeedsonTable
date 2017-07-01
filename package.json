@@ -19,7 +19,7 @@
   "dependencies": {
     "fso": "^2.5.11",
     "js-yaml": "^3.8.4",
-    "seedsontable": "^2.0.0",
+    "seedsontable": "^2.0.1",
     "xlsx": "^0.10.6"
   },
   "devDependencies": {
